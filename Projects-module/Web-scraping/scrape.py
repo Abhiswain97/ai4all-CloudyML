@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.service import Service
 import pandas as pd
 
 getDriverPath = (
-    lambda: "C:\\Users\\abhi0\\Downloads\\geckodriver-v0.30.0-win64\\geckodriver.exe"
+    lambda: "geckodriver-v0.30.0-win64\\geckodriver.exe"
 )
 
 firefoxService = Service(executable_path=getDriverPath())
@@ -25,20 +25,20 @@ try:
 except TimeoutException:
     driver.quit()
 
-summary = driver.find_element(by=By.CLASS_NAME, value="Level").text
+# summary = driver.find_element(by=By.CLASS_NAME, value="Level").text
 
-cases = list(
-    filter(
-        lambda x: not x.startswith("+"),
-        list(map(lambda x: x.strip(), summary.split("\n"))),
-    )
-)
+# cases = list(
+#     filter(
+#         lambda x: not x.startswith("+"),
+#         list(map(lambda x: x.strip(), summary.split("\n"))),
+#     )
+# )
 
-full_summary = {
-    "Current-Cases": cases[1],
-    "Active-Cases": cases[3],
-    "Recovered-Cases": cases[5],
-}
+# full_summary = {
+#     "Current-Cases": cases[1],
+#     "Active-Cases": cases[3],
+#     "Recovered-Cases": cases[5],
+# }
 
 table = driver.find_element(by=By.CLASS_NAME, value="Table").text
 table = table.split("\n")[2:]
