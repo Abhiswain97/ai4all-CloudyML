@@ -1,4 +1,4 @@
 fastapi==0.75.2
 joblib==1.1.0
 numpy==1.21.5
-uvicron==0.17.5
+uvicorn==0.17.5
