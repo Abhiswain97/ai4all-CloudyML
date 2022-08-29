@@ -41,6 +41,9 @@ except TimeoutException:
 # }
 
 table = driver.find_element(by=By.CLASS_NAME, value="Table").text
+
+print(table)
+
 table = table.split("\n")[2:]
 
 data_list = list(filter(lambda x: not ord(x[0]) == 8593, table))
